@@ -8,12 +8,12 @@ namespace SchoolApp.Api.Controllers;
 // [Route] sets the base URL for all endpoints in this controller to /api/students.
 [ApiController]
 [Route("api/[controller]")]
-public class StudentsController : ControllerBase
+public class StudentController : ControllerBase
 {
     private readonly IStudentService _service;
 
     // IStudentService is injected by ASP.NET's DI container.
-    public StudentsController(IStudentService service)
+    public StudentController(IStudentService service)
     {
         _service = service;
     }
