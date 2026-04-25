@@ -18,7 +18,7 @@ public class StudentService : IStudentService
     }
 
     // Fetches all students and converts each model to a response DTO.
-    public async Task<IEnumerable<StudentResponseDto>> GetAllStudentAsync()
+    public async Task<IEnumerable<StudentResponseDto>> GetAllStudentsAsync()
     {
         var students = await _repo.GetAllStudentsAsync();
         return students.Select(ToDto);

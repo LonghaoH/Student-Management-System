@@ -23,7 +23,7 @@ public class StudentController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<StudentResponseDto>>> GetAll()
     {
-        var students = await _service.GetAllStudentAsync();
+        var students = await _service.GetAllStudentsAsync();
         return Ok(students);
     }
 

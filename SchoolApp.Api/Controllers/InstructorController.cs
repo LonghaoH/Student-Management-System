@@ -1,0 +1,1 @@
+namespace SchoolApp.Api.Controllers;
