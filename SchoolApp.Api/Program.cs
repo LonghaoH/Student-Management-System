@@ -33,6 +33,10 @@ builder.Services.AddScoped<IInstructorService, InstructorService>(); // Service 
 builder.Services.AddScoped<ICourseRepo, CourseRepo>(); // Data layer class
 builder.Services.AddScoped<ICourseService, CourseService>(); // Service layer class
 
+// Enrollment stuff
+builder.Services.AddScoped<IEnrollmentRepo, EnrollmentRepo>(); // Data layer class
+builder.Services.AddScoped<IEnrollmentService, EnrollmentService>(); // Service layer class
+
 // Once we have things like our DbContext, our Services, etc 
 // We will register them here, using builder.Services (or some specialty methods for things
 // like a dbcontext)
