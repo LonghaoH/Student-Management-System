@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SchoolApp.Api.Data;
+using SchoolApp.Api.Middleware;
 using SchoolApp.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -51,6 +52,10 @@ if (app.Environment.IsDevelopment())
     // Serves the Swagger UI at /swagger
     app.UseSwaggerUI();
 }
+
+// Register our global exception handler - must be early in the pipeline
+// so it can catch exceptions thrown by any later middleware or controllers.
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 
