@@ -9,7 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
 
@@ -34,12 +33,14 @@ builder.Services.AddScoped<IInstructorService, InstructorService>(); // Service 
 builder.Services.AddScoped<ICourseRepo, CourseRepo>(); // Data layer class
 builder.Services.AddScoped<ICourseService, CourseService>(); // Service layer class
 
-
 // Once we have things like our DbContext, our Services, etc 
 // We will register them here, using builder.Services (or some specialty methods for things
 // like a dbcontext)
 
 var app = builder.Build();
+
+// Telling app to use our middleware
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -53,9 +54,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Register our global exception handler - must be early in the pipeline
-// so it can catch exceptions thrown by any later middleware or controllers.
-app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 
