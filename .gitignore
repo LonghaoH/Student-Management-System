@@ -28,6 +28,6 @@ appsettings.Production.json
 
 # Test Results
 TestResults/
-coverage/
+coverage-report/
 *.trx
 *.coveragexml
