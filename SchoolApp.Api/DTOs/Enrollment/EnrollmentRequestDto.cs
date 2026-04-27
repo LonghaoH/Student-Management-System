@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace SchoolApp.Api.DTOs;
 
 // Used as the request body for POST endpoints.
@@ -6,6 +8,9 @@ namespace SchoolApp.Api.DTOs;
 public class EnrollmentRequestDto
 {
     public int StudentId { get; set; }
+
     public int CourseId { get; set; }
+
+    [MaxLength(1)]
     public string? Grade { get; set; }
 }
