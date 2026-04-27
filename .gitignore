@@ -26,8 +26,8 @@ packages/
 appsettings.Development.json
 appsettings.Production.json
 
-# Test Results
-TestResults/
-coverage-report/
-*.trx
-*.coveragexml
+# # Test Results
+# TestResults/
+# coverage-report/
+# *.trx
+# *.coveragexml
